@@ -1,0 +1,7 @@
+{
+  "name": "CS PolyVoice AI",
+  "description": "Enterprise-grade real-time speech-to-speech translator with voice cloning capabilities.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
