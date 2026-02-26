@@ -8,6 +8,7 @@ export const LANGUAGES: SupportedLanguage[] = [
   SupportedLanguage.Italian,
   SupportedLanguage.German,
   SupportedLanguage.Chinese,
+  SupportedLanguage.Korean,
 ];
 
 export const DEFAULT_VOICES: VoiceProfile[] = [

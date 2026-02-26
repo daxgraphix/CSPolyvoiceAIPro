@@ -6,7 +6,8 @@ export enum SupportedLanguage {
   Turkish = 'Turkish',
   Italian = 'Italian',
   German = 'German',
-  Chinese = 'Mandarin Chinese'
+  Chinese = 'Mandarin Chinese',
+  Korean = 'Korean'
 }
 
 export interface Message {
@@ -30,7 +31,7 @@ export type ViewState = 'splash' | 'onboarding' | 'translate' | 'cloning' | 'his
 
 export type SpeechRate = 0.8 | 1.0 | 1.25;
 
-export type AppTheme = 'dark' | 'light';
+export type AppTheme = 'dark' | 'light' | 'ocean' | 'forest' | 'sunset';
 
 export interface AppState {
   sourceLang: SupportedLanguage;

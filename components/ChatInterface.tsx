@@ -5,9 +5,10 @@ import { Bot, User, Volume2, Copy, Check, Sparkles } from 'lucide-react';
 interface Props {
   messages: Message[];
   onPlay: (text: string) => void;
+  targetLang?: string;
 }
 
-export const ChatInterface: React.FC<Props> = ({ messages, onPlay }) => {
+export const ChatInterface: React.FC<Props> = ({ messages, onPlay, targetLang }) => {
   const bottomRef = useRef<HTMLDivElement>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
@@ -64,19 +65,27 @@ export const ChatInterface: React.FC<Props> = ({ messages, onPlay }) => {
               className={`max-w-[85%] relative group transition-all duration-300`}
             >
               <div className={`
-                 rounded-2xl px-5 py-3.5 backdrop-blur-xl border shadow-sm
+                 rounded-2xl px-5 py-3.5 backdrop-blur-xl border shadow-lg
                  ${isUser
-                    ? 'bg-primary/90 text-white rounded-br-none border-primary/50'
-                    : 'bg-surfaceHighlight/80 text-slate-100 rounded-bl-none border-white/10'
+                    ? 'bg-gradient-to-br from-primary to-violet-600 text-white rounded-br-none border-primary/50 shadow-primary/25'
+                    : 'bg-gradient-to-br from-surfaceHighlight to-slate-800/90 text-white rounded-bl-none border-white/10 shadow-slate-900/30'
                  }
                  ${isPending ? 'border-primary/50 animate-pulse' : ''}
               `}>
-                <p className={`text-[15px] leading-relaxed font-normal ${isPending ? 'text-white' : ''}`}>
+                <p className="text-[15px] leading-relaxed font-normal text-accent/80">
                   {msg.text}
                   {isPending && (
                      <span className="inline-block w-1.5 h-4 ml-1.5 bg-white animate-pulse align-middle rounded-full"></span>
                   )}
                 </p>
+               {!isPending && !isUser && targetLang && (
+                 <div className="flex items-center gap-1.5 mt-1 ml-1">
+                   <Sparkles size={10} className="text-accent/60" />
+                   <span className="text-[10px] text-accent/60 font-medium">
+                     Translated to {targetLang}
+                   </span>
+                 </div>
+               )}
               </div>
 
               {/* Action Bar (Visible on Hover/Touch) */}

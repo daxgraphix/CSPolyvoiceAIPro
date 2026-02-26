@@ -58,12 +58,12 @@ export const HistoryView: React.FC<Props> = ({ history, onBack, onClear, onPlay 
                     e.stopPropagation();
                     onPlay(msg.text);
                   }}
-                  className="opacity-0 group-hover:opacity-100 p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 transition-all"
+                  className="opacity-0 group-hover:opacity-100 p-2 rounded-full bg-white/5 hover:bg-white/10 text-white transition-all"
                 >
                   <Play className="w-4 h-4" />
                 </button>
               </div>
-              <p className="text-slate-300 text-sm leading-relaxed">{msg.text}</p>
+              <p className="text-white text-sm leading-relaxed">{msg.text}</p>
             </div>
           ))
         )}
